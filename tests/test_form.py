@@ -22,7 +22,6 @@ def test_fill_form():
         browser.element('#subjectsInput').type('Physics').press_enter()
         browser.element('#subjectsInput').perform(command.js.scroll_into_view)
         browser.element('[for="hobbies-checkbox-1"]').click()
-        # browser.element('#uploadPicture').send_keys(os.path.abspath('resources/1.jpg'))
         browser.element('#uploadPicture').set_value(resource.path('1.jpg'))
         browser.element('#currentAddress').type('Saint-Petersburg')
         browser.element('#react-select-3-input').type('NCR').press_enter()
