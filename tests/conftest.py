@@ -8,7 +8,7 @@ from utils import attach
 
 from dotenv import load_dotenv
 
-DEFAULT_BROWSER_VERSION = "100.0"
+#DEFAULT_BROWSER_VERSION = "100.0"
 
 
 def pytest_addoption(parser):
@@ -26,7 +26,7 @@ def load_env():
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
-    browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
+    browser_version = browser_version if browser_version != "" else os.getenv("DEFAULT_BROWSER_VERSION")
     selenoid_login = os.getenv("SELENOID_LOGIN")
     selenoid_pass = os.getenv("SELENOID_PASS")
     selenoid_url = os.getenv("SELENOID_URL")
